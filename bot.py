@@ -30,11 +30,19 @@ from PIL import Image, ImageDraw, ImageFont
 API_BASE = "https://v3.football.api-sports.io"
 WIKI_API = "https://es.wikipedia.org/w/api.php"
 
-TELEGRAM_BOT_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
-TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
-API_FOOTBALL_KEY = os.environ["API_FOOTBALL_KEY"]
+TELEGRAM_BOT_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"].strip()
+TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"].strip()
+API_FOOTBALL_KEY = os.environ["API_FOOTBALL_KEY"].strip()
 
 HEADERS = {"x-apisports-key": API_FOOTBALL_KEY}
+
+# Diagnóstico temprano: si el secret llegó vacío, mejor un error claro que
+# 22 avisos crípticos de "missing application key".
+if not API_FOOTBALL_KEY:
+    raise SystemExit(
+        "El secret API_FOOTBALL_KEY llegó vacío. Revisa en GitHub: "
+        "Settings > Secrets and variables > Actions > API_FOOTBALL_KEY."
+    )
 
 # Wikipedia pide un User-Agent identificable para uso automatizado de su API.
 # Puedes cambiar el contacto por el tuyo (no es obligatorio pero es buena práctica).
@@ -410,7 +418,28 @@ def enviar_telegram(texto):
         resp.raise_for_status()
 
 
+def verificar_estado_api():
+    """
+    Consulta /status: dice el plan de la cuenta, cuántas requests llevas
+    usadas hoy y si la suscripción está activa. Se imprime al principio
+    del log para diagnosticar de un vistazo si el problema es la API key,
+    el plan, o el límite diario — sin tener que leer los 22 intentos de
+    liga uno por uno.
+    """
+    print("===== ESTADO DE LA CUENTA API-FOOTBALL =====")
+    print(f"Longitud de API_FOOTBALL_KEY recibida: {len(API_FOOTBALL_KEY)} caracteres")
+    try:
+        resp = requests.get(f"{API_BASE}/status", headers=HEADERS, timeout=20)
+        print(f"HTTP status: {resp.status_code}")
+        print(json.dumps(resp.json(), indent=2, ensure_ascii=False))
+    except requests.RequestException as e:
+        print(f"[ERROR] no se pudo consultar /status: {e}")
+    print("==============================================")
+
+
 def main():
+    verificar_estado_api()
+
     ligas_config = cargar_ligas()
     mensaje, fixtures_con_liga = construir_mensaje(ligas_config)
 
