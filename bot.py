@@ -27,14 +27,19 @@ import requests
 from io import BytesIO
 from PIL import Image, ImageDraw, ImageFont
 
-API_BASE = "https://v3.football.api-sports.io"
+# RapidAPI en vez de dashboard.api-football.com directo: cambia la URL base
+# y el formato de los headers de autenticación.
+API_BASE = "https://api-football-v1.p.rapidapi.com/v3"
 WIKI_API = "https://es.wikipedia.org/w/api.php"
 
 TELEGRAM_BOT_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"].strip()
 TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"].strip()
 API_FOOTBALL_KEY = os.environ["API_FOOTBALL_KEY"].strip()
 
-HEADERS = {"x-apisports-key": API_FOOTBALL_KEY}
+HEADERS = {
+    "X-RapidAPI-Key": API_FOOTBALL_KEY,
+    "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
+}
 
 # Diagnóstico temprano: si el secret llegó vacío, mejor un error claro que
 # 22 avisos crípticos de "missing application key".
