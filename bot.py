@@ -30,9 +30,9 @@ from PIL import Image, ImageDraw, ImageFont
 API_BASE = "https://v3.football.api-sports.io"
 WIKI_API = "https://es.wikipedia.org/w/api.php"
 
-TELEGRAM_BOT_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
-TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
-API_FOOTBALL_KEY = os.environ["API_FOOTBALL_KEY"]
+TELEGRAM_BOT_TOKEN = os.environ["8831295805:AAGcBt0jAOMnEhYoXDDBtdEpaiZUp1o7-eg"]
+TELEGRAM_CHAT_ID = os.environ["-1003854224189"]
+API_FOOTBALL_KEY = os.environ["44d76b9427d24a99bb5d7052c9ba4aa7"]
 
 HEADERS = {"x-apisports-key": API_FOOTBALL_KEY}
 
