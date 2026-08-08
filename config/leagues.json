@@ -1,0 +1,178 @@
+[
+  {
+    "display_name": "Liga BetPlay (Primera A - Colombia)",
+    "search_name": "Primera A",
+    "country_hint": "Colombia",
+    "id": null,
+    "season": null,
+    "wiki_tv_page": null
+  },
+  {
+    "display_name": "Torneo BetPlay (Primera B - Colombia)",
+    "search_name": "Primera B",
+    "country_hint": "Colombia",
+    "id": null,
+    "season": null,
+    "wiki_tv_page": null
+  },
+  {
+    "display_name": "Copa BetPlay (Colombia)",
+    "search_name": "Copa Colombia",
+    "country_hint": "Colombia",
+    "id": null,
+    "season": null,
+    "wiki_tv_page": null
+  },
+  {
+    "display_name": "CONMEBOL Libertadores",
+    "search_name": "Copa Libertadores",
+    "country_hint": null,
+    "id": null,
+    "season": null,
+    "wiki_tv_page": "Anexo:Derechos de transmisión de la Copa Libertadores"
+  },
+  {
+    "display_name": "CONMEBOL Sudamericana",
+    "search_name": "Copa Sudamericana",
+    "country_hint": null,
+    "id": null,
+    "season": null,
+    "wiki_tv_page": null
+  },
+  {
+    "display_name": "UEFA Champions League",
+    "search_name": "UEFA Champions League",
+    "country_hint": "World",
+    "id": null,
+    "season": null,
+    "wiki_tv_page": "Anexo:Canales de televisión con derechos de la Liga de Campeones de la UEFA"
+  },
+  {
+    "display_name": "UEFA Europa League",
+    "search_name": "UEFA Europa League",
+    "country_hint": "World",
+    "id": null,
+    "season": null,
+    "wiki_tv_page": "Anexo:Canales de televisión con derechos de la Liga Europa de la UEFA"
+  },
+  {
+    "display_name": "Premier League (Inglaterra)",
+    "search_name": "Premier League",
+    "country_hint": "England",
+    "id": null,
+    "season": null,
+    "wiki_tv_page": null
+  },
+  {
+    "display_name": "LaLiga (España)",
+    "search_name": "La Liga",
+    "country_hint": "Spain",
+    "id": null,
+    "season": null,
+    "wiki_tv_page": null
+  },
+  {
+    "display_name": "Serie A (Italia)",
+    "search_name": "Serie A",
+    "country_hint": "Italy",
+    "id": null,
+    "season": null,
+    "wiki_tv_page": null
+  },
+  {
+    "display_name": "Bundesliga (Alemania)",
+    "search_name": "Bundesliga",
+    "country_hint": "Germany",
+    "id": null,
+    "season": null,
+    "wiki_tv_page": null
+  },
+  {
+    "display_name": "Ligue 1 (Francia)",
+    "search_name": "Ligue 1",
+    "country_hint": "France",
+    "id": null,
+    "season": null,
+    "wiki_tv_page": null
+  },
+  {
+    "display_name": "Eredivisie (Países Bajos)",
+    "search_name": "Eredivisie",
+    "country_hint": "Netherlands",
+    "id": null,
+    "season": null,
+    "wiki_tv_page": null
+  },
+  {
+    "display_name": "Primeira Liga (Portugal)",
+    "search_name": "Primeira Liga",
+    "country_hint": "Portugal",
+    "id": null,
+    "season": null,
+    "wiki_tv_page": null
+  },
+  {
+    "display_name": "Liga Profesional (Argentina)",
+    "search_name": "Liga Profesional Argentina",
+    "country_hint": "Argentina",
+    "id": null,
+    "season": null,
+    "wiki_tv_page": null
+  },
+  {
+    "display_name": "MLS (Estados Unidos / Canadá)",
+    "search_name": "MLS",
+    "country_hint": "USA",
+    "id": null,
+    "season": null,
+    "wiki_tv_page": null
+  },
+  {
+    "display_name": "Eliminatorias CONMEBOL",
+    "search_name": "World Cup - Qualification South America",
+    "country_hint": "World",
+    "id": null,
+    "season": null,
+    "wiki_tv_page": "Anexo:Derechos de transmisión de la Clasificación de Conmebol para la Copa Mundial de Fútbol de 2026"
+  },
+  {
+    "display_name": "Eliminatorias UEFA",
+    "search_name": "World Cup - Qualification Europe",
+    "country_hint": "World",
+    "id": null,
+    "season": null,
+    "wiki_tv_page": null
+  },
+  {
+    "display_name": "Eliminatorias CONCACAF",
+    "search_name": "World Cup - Qualification CONCACAF",
+    "country_hint": "World",
+    "id": null,
+    "season": null,
+    "wiki_tv_page": null
+  },
+  {
+    "display_name": "Copa América",
+    "search_name": "Copa America",
+    "country_hint": "World",
+    "id": null,
+    "season": null,
+    "wiki_tv_page": null
+  },
+  {
+    "display_name": "Mundial (Copa del Mundo)",
+    "search_name": "World Cup",
+    "country_hint": "World",
+    "id": null,
+    "season": null,
+    "wiki_tv_page": null
+  },
+  {
+    "display_name": "Amistosos Internacionales",
+    "search_name": "Friendlies",
+    "country_hint": "World",
+    "id": null,
+    "season": null,
+    "wiki_tv_page": null
+  }
+]
