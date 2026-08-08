@@ -53,6 +53,20 @@ def cargar_ligas(ruta="config/leagues.json"):
         return json.load(f)
 
 
+def _revisar_errores_api(cuerpo_json, contexto):
+    """
+    api-football suele responder HTTP 200 incluso cuando algo falla (key
+    inválida, plan sin acceso, límite diario superado, parámetro mal
+    formado), y mete el motivo en el campo 'errors' del JSON en vez de
+    devolver un código de error HTTP. requests.raise_for_status() no
+    detecta esto, así que lo revisamos a mano para no quedarnos ciegos.
+    """
+    errores = cuerpo_json.get("errors")
+    if errores:
+        print(f"  [ERROR API-FOOTBALL] en {contexto}: {errores}")
+    return errores
+
+
 def buscar_liga(search_name, country_hint=None):
     """Resuelve el league_id y la temporada actual buscando por nombre."""
     try:
@@ -63,7 +77,12 @@ def buscar_liga(search_name, country_hint=None):
             timeout=20,
         )
         resp.raise_for_status()
-        data = resp.json().get("response", [])
+        cuerpo = resp.json()
+        _revisar_errores_api(cuerpo, f"búsqueda de liga '{search_name}'")
+        restante = resp.headers.get("x-ratelimit-requests-remaining")
+        if restante is not None:
+            print(f"  (requests restantes hoy en API-FOOTBALL: {restante})")
+        data = cuerpo.get("response", [])
     except requests.RequestException as e:
         print(f"  [ERROR] buscando liga '{search_name}': {e}")
         return None, None
@@ -116,7 +135,11 @@ def partidos_de_hoy(league_id, season):
             timeout=20,
         )
         resp.raise_for_status()
-        return resp.json().get("response", [])
+        cuerpo = resp.json()
+        _revisar_errores_api(cuerpo, f"partidos league_id={league_id} season={season} date={hoy}")
+        fixtures = cuerpo.get("response", [])
+        print(f"  -> league_id={league_id} season={season} date={hoy}: {len(fixtures)} partido(s)")
+        return fixtures
     except requests.RequestException as e:
         print(f"  [ERROR] obteniendo partidos para league_id={league_id}: {e}")
         return []
